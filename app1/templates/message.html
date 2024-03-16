@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Congratulations!</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        {% if name %}
+            <h1>Congrats {{ name }}!</h1>
+            <p>You have successfully deployed your project on EC2 instance!</p>
+        {% else %}
+            <p>Enter your Name!</p>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Enter your name">
+            <button type="submit">Submit</button>           
+        </form>
+    </div>
+</body>
+</html>
